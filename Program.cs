@@ -11,21 +11,22 @@ namespace guessing_game
 
             string secretNumber = "42";
 
-            int numberAttempts = 0;
+            int numberOfAttempts = 0;
 
-            while (numberAttempts < 4)
+            while (numberOfAttempts < 4)
             {
-                Console.WriteLine("Guess the Secret Number");
+                Console.WriteLine("Try to Guess the secret number? You have guessed {$numberOfAttempts} times.");
 
                 string numberGuess = Console.ReadLine();
 
                 if (numberGuess == secretNumber)
                 {
                     Console.WriteLine("Congrats you guessed the right number!");
+                    numberOfAttempts = 4;
                 }
                 else
                 {
-                    numberAttempts++;
+                    numberOfAttempts++;
                     Console.WriteLine("Try Again");
                 }
 
