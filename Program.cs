@@ -8,25 +8,28 @@ namespace guessing_game
         static void Main(string[] args)
 
         {
-            Console.WriteLine("Guess the Secret Number");
-
-            string numberGuess = Console.ReadLine();
-
-            Console.WriteLine($"Your guess was...{numberGuess}");
 
             string secretNumber = "42";
 
-            while (numberGuess != secretNumber)
+            int numberAttempts = 0;
+
+            while (numberAttempts < 4)
+            {
+                Console.WriteLine("Guess the Secret Number");
+
+                string numberGuess = Console.ReadLine();
 
                 if (numberGuess == secretNumber)
                 {
                     Console.WriteLine("Congrats you guessed the right number!");
                 }
-            else
-            {
-                Console.WriteLine("Try Again");
-            }
+                else
+                {
+                    numberAttempts++;
+                    Console.WriteLine("Try Again");
+                }
 
+            }
         }
     }
 }
