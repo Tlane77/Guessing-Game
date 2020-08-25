@@ -21,6 +21,7 @@ namespace guessing_game
             int numberOfAttempts = 0;
             int attemptsAvailable = 0;
             bool difficultySet = false;
+            bool isCheater = false;
 
             Console.WriteLine($"Can you guess the secret number? >>");
             while (!difficultySet)
@@ -43,6 +44,12 @@ namespace guessing_game
                     attemptsAvailable = 4;
                     difficultySet = true;
                 }
+                else if (difficulty == "Cheater")
+                {
+                    attemptsAvailable = 4;
+                    difficultySet = true;
+                    isCheater = true;
+                }
             }
 
             while (numberOfAttempts < attemptsAvailable)
@@ -61,16 +68,16 @@ namespace guessing_game
 
                 {
                     Console.WriteLine("Your guess was too high");
-                    numberOfAttempts++;
+                    if (!isCheater) numberOfAttempts++;
                 }
                 else if (numberGuess < secretNumber)
                 {
                     Console.WriteLine("Your guess was too low");
-                    numberOfAttempts++;
+                    if (!isCheater) numberOfAttempts++;
                 }
                 else
                 {
-                    numberOfAttempts++;
+                    if (!isCheater) numberOfAttempts++;
                     Console.WriteLine("Try Again!");
                 }
 
