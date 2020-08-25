@@ -23,38 +23,39 @@ namespace guessing_game
             bool difficultySet = false;
             bool isCheater = false;
 
-            Console.WriteLine($"Can you guess the secret number? >>");
             while (!difficultySet)
-                Console.WriteLine("Select difficulty easy,medium, hard.");
-            string difficulty = Console.ReadLine();
             {
-                if (difficulty == "easy")
+                Console.WriteLine("Select difficulty easy,medium, hard.");
+                string difficulty = Console.ReadLine();
                 {
-                    attemptsAvailable = 8;
-                    difficultySet = true;
+                    if (difficulty == "easy")
+                    {
+                        attemptsAvailable = 8;
+                        difficultySet = true;
 
-                }
-                else if (difficulty == "medium")
-                {
-                    attemptsAvailable = 6;
-                    difficultySet = true;
-                }
-                else if (difficulty == "hard")
-                {
-                    attemptsAvailable = 4;
-                    difficultySet = true;
-                }
-                else if (difficulty == "Cheater")
-                {
-                    attemptsAvailable = 4;
-                    difficultySet = true;
-                    isCheater = true;
+                    }
+                    else if (difficulty == "medium")
+                    {
+                        attemptsAvailable = 6;
+                        difficultySet = true;
+                    }
+                    else if (difficulty == "hard")
+                    {
+                        attemptsAvailable = 4;
+                        difficultySet = true;
+                    }
+                    else if (difficulty == "Cheater")
+                    {
+                        attemptsAvailable = 4;
+                        difficultySet = true;
+                        isCheater = true;
+                    }
                 }
             }
-
+            Console.WriteLine($"Can you guess the secret number? >>");
             while (numberOfAttempts < attemptsAvailable)
             {
-                Console.WriteLine($"Your Attempts Remaining {4 - numberOfAttempts}");
+                Console.WriteLine($"Your Attempts Remaining {attemptsAvailable - numberOfAttempts}");
 
                 int numberGuess = Int32.Parse(Console.ReadLine());
 
